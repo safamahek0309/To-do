@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- This line makes the page scale correctly on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TaskFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>TaskFlow</h1>
+    <p class="subtitle">One list. Get things done.</p>
+
+    <!-- Form: pressing Enter or clicking Add both submit it -->
+    <form id="task-form" class="task-form">
+      <input
+        type="text"
+        id="task-input"
+        placeholder="What needs doing?"
+        aria-label="New task"
+        autocomplete="off"
+      >
+      <button type="submit">Add</button>
+    </form>
+
+    <!-- JavaScript fills this list with tasks -->
+    <ul id="task-list" class="task-list"></ul>
+
+    <!-- Shown only when there are no tasks -->
+    <p id="empty-message" class="empty-message">
+      Nothing here yet. Add your first task above.
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

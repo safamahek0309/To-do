@@ -1,0 +1,154 @@
+/* ---------- Colors in one place, so they're easy to change ---------- */
+:root {
+  --bg: #0f1419;
+  --surface: #1a212b;
+  --border: #2a3441;
+  --text: #e6edf3;
+  --text-muted: #8b98a8;
+  --accent: #3b82f6;        /* the blue accent */
+  --accent-hover: #2563eb;
+  --danger: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* The app column: full width on phones, capped on desktop */
+.app {
+  width: 100%;
+  max-width: 520px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.subtitle {
+  margin: 0.25rem 0 1.5rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Add-task form ---------- */
+.task-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.task-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.task-form input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.task-form button {
+  padding: 0.75rem 1.25rem;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task-form button:hover {
+  background: var(--accent-hover);
+}
+
+/* ---------- Task list ---------- */
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.task-item input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.task-text {
+  flex: 1;
+  overflow-wrap: anywhere; /* long words won't break the layout */
+}
+
+/* Completed tasks look faded with a line through them */
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.delete-button {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--danger);
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  border-color: var(--danger);
+}
+
+/* ---------- Empty state ---------- */
+.empty-message {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* The "hidden" attribute hides an element; this makes sure it wins */
+[hidden] {
+  display: none;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 480px) {
+  body {
+    padding: 1.25rem 0.75rem;
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+}
